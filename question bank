@@ -1,0 +1,253 @@
+#user defined functions
+#Write function should take the string input and return the dictionary with the keys being the characters in the string and the values for those keys being the frequecny of that character in the string.
+s = input()
+d = {}
+for i in s:
+    d[i] = s.count(i)
+print(d)
+#Write a Python code using functions to print the number of uppercase, lowercase and special characters available in the given string.
+    n1 = 0
+    n2 = 0
+    n3 = 0
+    n4 = 0
+    for j in n:
+        if j.isupper():
+            n1 += 1
+
+        elif j.islower():
+            n2 += 1
+
+        elif j.isdigit():
+            pass
+        elif j.isspace():
+            n3 += 1
+        else:
+            n4 += 1
+    print("Number of uppercase characters is: ", n1)
+    print("Number of lowercase characters is: ", n2)
+    print("Number of special characters is :", n4+n3)
+
+n = input("Give the string: ")
+print(freqcounter(n))
+#Write apython program to count vowels and consonants in a string
+def vowels(n):
+    v = 0
+    l = ["a","e","i","o","u"]
+    for i in n:
+        if i in l:
+            v += 1
+        else:
+             pass
+    return v
+def consonants(n):
+    c = 0
+    l1 = ['q','w','r','t','y','p','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m']
+    for i in n:
+        if i in l1:
+            c += 1
+        else:
+            pass
+    return c
+n = input("Give the string: ")
+print("Vowel count is: ",vowels(n))
+print("Consonants count is: ",consonants(n))
+#Create a function to test if a string is a valid pincode or not.
+n = input()
+if len(n)==6 and int(n[0])!=0:
+    print("Valid")
+else:
+    print("Invalid")
+#Write a Python program to check whether the date of birth that is given as input is in the format YYYY-MMM-DD. If so display, “Correct Format”. Else, Convert the given input (DD-MM-YYYY) into the required format and “Format Corrected”.
+import re
+d=input()
+x=re.search('^\d{4}-[A-Z]{3}-\d{2}',d)
+if x:
+  print('Correct format')
+else:
+  l=d.split('-')
+  dt,m,y=l[0],l[1],l[2]
+  dict={1:'JAN',2:'FEB',3:'MAR',4:'APR',5:'MAY',6:'JUN',7:'JUL',8:'AUG',9:'SEP',10:'OCT',11:'NOV',12:'DEC'}
+  mon=dict[int(m)]
+  d=y+'-'+mon+'-'+dt
+  print(d,'\nFormat Corrected')
+#Create a str3 made of the first char of s1 then the last char of s2 the second char of s1 and second last char of s2, and so on. Any leftover chars go at the end of the result.
+#Check whether the output string follows the pattern of Upper and lower case alphabets being available in the alternate position.
+S1 = input("Enter first string: ")
+S2 = input("Enter the second string: ")
+S2 = S2[::-1]
+result = ""
+S1_length = len(S1)
+S2_length = len(S2)
+if S1_length>S2_length:
+    length = S1_length
+else:
+    length = S2_length
+for i in range(length):
+     if i<S1_length:
+          result=result+S1[i]
+     if i<S2_length:
+          result=result+S2[i]
+     else:
+          print("Doesn't follow pattern")
+          break
+print(result)
+#Write a program that takes your full name as input and displays the abbreviations of the first and middle names except the last name which is displayed as it is
+n = input("Give name: ")
+l = n.split()
+for i in range (len(l)-1):
+    l[i] = l[i][0]
+x = '.'.join(l)
+print(x)
+#. Get N names in a list and prints the shortest names in the list, one on each line. There is more than one shortest name, so both need to be printed
+n = int(input())
+l = {}
+for i in range(n):
+    m = input()
+    k = len(m)
+    l[m] = k
+l1 = sorted(l.items(),key= lambda x:x[1])
+if len(l1[0]) == len(l1[1]):
+    print(l1[0][0],l1[1][0])
+else:
+    print(l1[0][0])
+#From the given string, find the string length and check whether the string is palindrome or not
+n = input()
+print(len(n))
+s = n[::-1]
+if s==n:
+    print("Given string is a palindrome")
+else:
+    print("Given string is not a palindrome")
+#Find the presence of ODD and EVEN numbers in the list.
+#If the ODD number occurs at the ODD position replace the ODD number with 'odd'.
+#If the EVEN number occurs at the EVEN position replace the EVEN number with 'even'.
+ n = int(input())
+l = []
+for i in range(n):
+    s = int(input())
+    l.append(s)
+for i in l:
+    q = l.index(i)
+    if (q + 1) % 2 == 0 and i % 2 == 0:
+        l[q] = 'even'
+    elif (q + 1) % 2 != 0 and i % 2 != 0:
+        l[q] = 'odd'
+print(l)
+#Take input of a dictionary of states and their respective number of districts
+#For every entered state,
+#- find its number of districts 
+#- count the number of states that has the same count of districts
+#- Form a new dictionary from the above-founded number of districts as key and the list of states that have the same number of districts as its value
+d={}  #make a dict
+l = int(input())   #take no of inputs in the dict
+for i in range(l):  #take states and their respective no of districts and append in the district
+    state= input()
+    dno= int(input())
+    d[state]=dno
+srchdno=input()  # input the state whoes no of districts is to be printed
+print(d[srchdno])
+c = 0  #set a counter for no of states with same number of districts
+l=[]   #make a list of states with same no of districts
+for i in d:    #from the state dictionary find out how many states have same no of districts and make their list
+    if d[i]==d[srchdno]:
+        c += 1
+        l.append(i)
+n = {d[srchdno]:l}  #print a new dict with no of districts and all the states having the same no
+print(c)
+print(n)
+#Get a list of N elements. Split and store it into two different list based on the middle element. 
+n = int(input())
+l = []
+for i in range(n):
+    m = int(input())
+    l.append(m)
+s = n/2
+l1 = []
+l2 = []
+for i in l:
+    if l.index(i)<s:
+        l1.append(i)
+    else:
+        l2.append(i)
+print("List 1 is:")
+for i in l1:
+    print(i)
+print("List 2 is: ")
+for i in l2:
+    print(i)
+#Get a number (between 1 and 10) from the user and create a dictionary as following key-value pair (key and a list as value)
+n = int(input())
+d = {}
+for i in range(1,n+1):
+    l = list(j for j in range (1,i+1))
+    d[i] = l
+print(d)
+#Execute a Python program to check whether a given key already exists in a dictionary.
+n = int(input("Enter the size of dictionary: "))
+d ={}
+l = []
+for i in range(n):
+    k = input()
+    l.append(k)
+    v = input()
+    d[k] = v
+m = input()
+if m in l:
+    print("Key existing")
+else:
+    print("Key not existing")
+#Consider a tuple as T = (1, 3, 2, 4, 6, 5).
+#Write a program to store numbers present at odd index into a new tuple.
+t = tuple(input().split(','))
+print(t[1::2])
+#Write a code to count the numbers that are divisible by 2 and 3.  
+dv = 0
+ndv = 0
+
+while True:
+    i = int(input())
+    if i==-100:
+        break
+    else:
+        if i % 6 == 0:
+            dv += 1
+        else:
+            ndv += 1
+print("Divisible count is",dv)
+print("Not divisible count is",ndv)
+#. Given an array of integers, return True if 6 appears as either the first or last element in the array. The array will be length 1 or more.
+l = list(map(int,input("Enter the numbers: ").split()))#take a list
+def func(l): # define function
+    if l[0] == 6:
+        flag = True
+    elif l[-1] == 6:
+        flag = True
+    else:
+        flag = False
+    return flag #returning the flag
+print(func(l))
+#Given a list of marks secured in CSE1001 by the students, write a Python code to determine the class average. Print only two decimal digits in average.
+n = int(input())
+s = 0
+for i in range (n):
+    m = int(input())
+    s += m
+print("Average of class is ",s/n)
+#Write a Python code to display all the happy numbers in a list data structure from 0 till the given number N which is got as input
+def is_happy(n):
+    s = set()
+    while n not in s:
+        s.add(n)
+        n = sum(int(d) ** 2 for d in str(n))
+    return n == 1
+
+def happy_numbers(n):
+    return [x for x in range(n+1) if is_happy(x)]
+print(happy_numbers(int(input())))
+
+
+
+
+
+   
+
